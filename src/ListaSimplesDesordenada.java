@@ -90,26 +90,18 @@ public class ListaSimplesDesordenada<X> {
             this.ultimo = this.ultimo.getProx();
         }
     }
+    public void inverterLista() throws Exception{
+        ListaSimplesDesordenada<X> lista = this.getReverse();
+        this.primeiro = lista.primeiro;
+        this.ultimo = lista.ultimo; 
+    }
 
-    public void reverse() throws Exception {
-        if (this.primeiro == null && this.ultimo == null)
-            throw new Exception("Nada a reverter");
-
-        if (this.primeiro == this.ultimo) // so 1 elemento
-        {
-            this.primeiro = this.ultimo = null;
-            return;
-        }
-        No anterior = null;
-        for (int i = 0; i < this.getTamanhoLista(); i++) {
-            this.ultimo.setProx(primeiro);
-            anterior = this.primeiro;
-            this.ultimo.setProx(primeiro.getProx());
-            if (this.primeiro.getProx() != null)
-                anterior = this.primeiro.getProx();
-
-        }
-        this.ultimo = null;
+    public ListaSimplesDesordenada<X> getReverse() throws Exception {
+        ListaSimplesDesordenada<X> listaSimplesDesordenada = new ListaSimplesDesordenada<>();
+        for(No atual = this.primeiro; atual != null; atual = atual.getProx()) 
+            try{listaSimplesDesordenada.guardeUmItemNoInicio(atual.getInfo());}
+            catch(Exception e){}
+        return listaSimplesDesordenada;
     }
 
     public X recupereItemDoInicio() throws Exception {

@@ -31,8 +31,9 @@ public class App {
             lis2.guardeUmItemNoInicio("C++");
             lis2.guardeUmItemNoFinal("Java");
             lis2.guardeUmItemNoInicio("Python");
-            lis2.reverse();
+            lis2.inverterLista();
             System.out.println(lis2);
+            
 
             // System.out.println("lis2 " + lis2.recupereItemDoFinal());
         } catch (Exception e) {
