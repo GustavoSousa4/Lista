@@ -1,3 +1,4 @@
+import java.lang.annotation.Retention;
 import java.lang.reflect.*;
 
 public class ListaSimplesDesordenada<X> {
@@ -90,17 +91,20 @@ public class ListaSimplesDesordenada<X> {
             this.ultimo = this.ultimo.getProx();
         }
     }
-    public void inverterLista() throws Exception{
+
+    public void inverterLista() throws Exception {
         ListaSimplesDesordenada<X> lista = this.getReverse();
         this.primeiro = lista.primeiro;
-        this.ultimo = lista.ultimo; 
+        this.ultimo = lista.ultimo;
     }
 
     public ListaSimplesDesordenada<X> getReverse() throws Exception {
         ListaSimplesDesordenada<X> listaSimplesDesordenada = new ListaSimplesDesordenada<>();
-        for(No atual = this.primeiro; atual != null; atual = atual.getProx()) 
-            try{listaSimplesDesordenada.guardeUmItemNoInicio(atual.getInfo());}
-            catch(Exception e){}
+        for (No atual = this.primeiro; atual != null; atual = atual.getProx())
+            try {
+                listaSimplesDesordenada.guardeUmItemNoInicio(atual.getInfo());
+            } catch (Exception e) {
+            }
         return listaSimplesDesordenada;
     }
 
@@ -166,6 +170,28 @@ public class ListaSimplesDesordenada<X> {
             atual = atual.getProx();
         }
 
+        return ret;
+    }
+
+    public ListaSimplesDesordenada<X> concatenando(ListaSimplesDesordenada<X> lis) throws Exception {
+        if (lis == null)
+            throw new Exception("Lista vazia");
+        for (No prox = lis.primeiro; prox != null; prox = prox.getProx())
+            this.guardeUmItemNoFinal(prox.getInfo());
+        return this;
+    }
+
+    public ListaSimplesDesordenada<X> elemIguais(ListaSimplesDesordenada<X> lis) throws Exception {
+        if (lis == null)
+            throw new Exception("Lista vazia");
+        ListaSimplesDesordenada<X> ret = new ListaSimplesDesordenada<>();
+        No atual, prox;
+        for (prox = lis.primeiro; prox != null; prox = prox.getProx()) {
+            for (atual = this.primeiro; atual != null; atual = atual.getProx()) {
+                if (atual.getInfo().equals(prox.getInfo()))
+                    ret.guardeUmItemNoFinal(atual.getInfo());
+            }
+        }
         return ret;
     }
 
