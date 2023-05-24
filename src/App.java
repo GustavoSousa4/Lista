@@ -33,7 +33,32 @@ public class App {
             lis2.guardeUmItemNoInicio("Python");
             lis2.inverterLista();
             System.out.println(lis2);
-            
+
+            System.out.println("----------------------LIS3---------------------");
+            lis2.inverterLista();
+            ListaSimplesDesordenada<String> lis3 = new ListaSimplesDesordenada<>();
+            lis3.guardeUmItemNoInicio("Rest");
+            lis3.guardeUmItemNoInicio("Ruby");
+            lis3.guardeUmItemNoFinal("JavaScript");
+            lis3.guardeUmItemNoInicio("Kotlin");
+            System.out.println(lis3);
+            lis3.concatenando(lis2);
+            System.out.println(lis3);
+            ListaSimplesDesordenada<String> lis5 = new ListaSimplesDesordenada<>();
+
+            System.out.println("----------------------LIS4---------------------");
+            ListaSimplesDesordenada<String> lis4 = new ListaSimplesDesordenada<>();
+            lis4.guardeUmItemNoInicio("Rest");
+            lis4.guardeUmItemNoInicio("Ruby");
+            // lis4.guardeUmItemNoFinal("JavaScript");
+            lis4.guardeUmItemNoInicio("Kotlin");
+            lis4.guardeUmItemNoFinal("GO");
+            lis5.guardeUmItemNoInicio("GO");
+            lis5.guardeUmItemNoInicio("Ruby");
+            lis5.guardeUmItemNoFinal("Rest");
+
+            System.out.println("Elementos iguais: " + lis4.elemIguais(lis5));
+            System.out.println(lis4);
 
             // System.out.println("lis2 " + lis2.recupereItemDoFinal());
         } catch (Exception e) {
