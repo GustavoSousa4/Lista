@@ -92,12 +92,14 @@ public class ListaSimplesDesordenada<X> {
         }
     }
 
+    // Invertendo a lista
     public void inverterLista() throws Exception {
         ListaSimplesDesordenada<X> lista = this.getReverse();
         this.primeiro = lista.primeiro;
         this.ultimo = lista.ultimo;
     }
 
+    // Retornando a lista invertida
     public ListaSimplesDesordenada<X> getReverse() throws Exception {
         ListaSimplesDesordenada<X> listaSimplesDesordenada = new ListaSimplesDesordenada<>();
         for (No atual = this.primeiro; atual != null; atual = atual.getProx())
@@ -144,20 +146,16 @@ public class ListaSimplesDesordenada<X> {
     }
 
     public void removaItemDoFinal() throws Exception {
-        if (this.primeiro == null/* &&this.ultimo==null */)
+        if (this.primeiro == null)
             throw new Exception("Nada a remover");
-
-        if (this.primeiro == this.ultimo) // so 1 elemento
-        {
+        if (this.primeiro == this.ultimo) {
             this.primeiro = this.ultimo = null;
             return;
         }
 
         No atual;
         for (atual = this.primeiro; atual.getProx() != this.ultimo; atual = atual.getProx())
-            /* comando vazio */;
-
-        atual.setProx(null);
+            atual.setProx(null);
         this.ultimo = atual;
     }
 
@@ -173,6 +171,7 @@ public class ListaSimplesDesordenada<X> {
         return ret;
     }
 
+    // Concatenando a Lista passada como parametro à this
     public ListaSimplesDesordenada<X> concatenando(ListaSimplesDesordenada<X> lis) throws Exception {
         if (lis == null)
             throw new Exception("Lista vazia");
@@ -181,6 +180,7 @@ public class ListaSimplesDesordenada<X> {
         return this;
     }
 
+    // Verifica quais itens são iguais e retorna dentro de uma nova lista
     public ListaSimplesDesordenada<X> elemIguais(ListaSimplesDesordenada<X> lis) throws Exception {
         if (lis == null)
             throw new Exception("Lista vazia");
@@ -195,6 +195,7 @@ public class ListaSimplesDesordenada<X> {
         return ret;
     }
 
+    // Retorna a informação pedida pela iezima posição da Lista
     public X getIezima(int i) throws Exception {
         if (i < 0)
             throw new Exception("Posição invalida");
@@ -214,6 +215,11 @@ public class ListaSimplesDesordenada<X> {
         }
     }
 
+    /*
+     * Retorna em String se há mais de uma informação igual ao passado pelo
+     * parametro
+     * dentro da mesma lista
+     */
     public String getQuantidadeElement(X info) throws Exception {
         if (info == null)
             throw new Exception("Informacao ausente");
@@ -230,6 +236,7 @@ public class ListaSimplesDesordenada<X> {
 
     }
 
+    // retorna o tamanho da Lista
     public int getTamanhoLista() throws Exception {
 
         int contador = 0;
